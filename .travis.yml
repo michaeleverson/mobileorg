@@ -17,13 +17,13 @@ language: objective-c
 # - docker pull phylor/webdav-ssl
 # - docker run -v $PWD/htpasswd:/htpasswd -v $PWD/certs:/certs -v $PWD/content:/var/www -h mobileOrgWebDav.schnuddelhuddel.de -p 32773:443 phylor/webdav-ssl
 
-osx_image: xcode8.3
+osx_image: xcode10.1
 
 # xcode_project: MobileOrg.xcodeproj
 xcode_scheme: MobileOrg
 
-install:
-  pod install --repo-update 
+#install:
+#  pod install --repo-update 
 
 script:
   xcodebuild test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO  -workspace MobileOrg.xcworkspace -scheme MobileOrg -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3'|xcpretty
